@@ -1,4 +1,5 @@
 const { resolve } = require('path');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -92,6 +93,15 @@ module.exports = {
 
   plugins: [
 
+    // Browsersync
+    ...(process.env.PROXY_HOST ? [new BrowserSyncPlugin({
+      host: 'localhost',
+      port: process.env.PROXY_PORT || 3000,
+      proxy: process.env.PROXY_HOST,
+      notify: false,
+      files: ['./**/*.php'],
+    })] : []),
+
     // Clean assets directory
     new CleanWebpackPlugin(),
 
@@ -128,7 +138,7 @@ module.exports = {
 
   devtool: mode === 'development' ? 'source-map' : false,
 
-  performance: { hints: false },
+  performance: { hints: false, maxAssetSize: 8388608 },
 
   stats: {
     all: false,
