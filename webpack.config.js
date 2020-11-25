@@ -73,9 +73,20 @@ module.exports = {
 
   ],
 
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendor',
+        },
+      },
+    },
+  },
+
   // Resolve loaders relative to webpack4-defaults
   resolveLoader: {
-    modules: ['node_modules', resolve(__dirname, 'node_modules')]
+    modules: ['node_modules', resolve(__dirname, 'node_modules')],
   },
 
   devtool: mode === 'development' ? 'source-map' : false,
