@@ -1,0 +1,13 @@
+{
+  "name": "webpack4-defaults",
+  "version": "0.1.0",
+  "main": "webpack.config.js",
+  "license": "MIT",
+  "bin": {
+    "webpack": "./node_modules/.bin/webpack"
+  },
+  "dependencies": {
+    "webpack": "4",
+    "webpack-cli": "^4.2.0"
+  }
+}
