@@ -1,6 +1,8 @@
 const { resolve } = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 const mode = process.argv.includes('production') ? 'production' : 'development';
@@ -102,6 +104,12 @@ module.exports = {
   ],
 
   optimization: {
+    // Minimize JS / CSS
+    minimizer: [
+      new OptimizeCssAssetsPlugin(),
+      new TerserPlugin({ extractComments: (astNode, comment) => false }),
+    ],
+    // Split vendor chunk
     splitChunks: {
       cacheGroups: {
         vendor: {
