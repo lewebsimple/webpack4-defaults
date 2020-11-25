@@ -62,9 +62,27 @@ module.exports = {
 
       // Images
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        test: /\.(png|jpg|jpeg|gif)$/i,
         loader: 'file-loader',
         options: { name: 'images/[name].[ext]' },
+      },
+
+      // SVG
+      {
+        test: /\.svg$/,
+        oneOf: [
+          {
+            resourceQuery: /inline/,
+            use: [
+              'babel-loader',
+              'vue-svg-loader',
+            ],
+          },
+          {
+            loader: 'file-loader',
+            options: { name: 'images/[name].[ext]' },
+          },
+        ],
       },
 
     ],
@@ -85,7 +103,6 @@ module.exports = {
 
   optimization: {
     splitChunks: {
-
       cacheGroups: {
         vendor: {
           test:  /node_modules\/(.*)\.js/,
