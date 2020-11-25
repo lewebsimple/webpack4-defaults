@@ -1,6 +1,7 @@
 const { resolve } = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 const mode = process.argv.includes('production') ? 'production' : 'development';
 
@@ -20,6 +21,12 @@ module.exports = {
           presets: ['@babel/preset-env'],
           plugins: ['@babel/plugin-transform-runtime'],
         },
+      },
+
+      // Vue.js
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
       },
 
       // CSS / SCSS
@@ -71,14 +78,19 @@ module.exports = {
     // Extract styles to a single CSS file
     new MiniCssExtractPlugin({ filename: 'css/[name].css', }),
 
+    // Vue.js
+    new VueLoaderPlugin(),
+
   ],
 
   optimization: {
     splitChunks: {
+
       cacheGroups: {
         vendor: {
-          test: /[\\/]node_modules[\\/]/,
+          test:  /node_modules\/(.*)\.js/,
           name: 'vendor',
+          chunks: 'initial',
         },
       },
     },
