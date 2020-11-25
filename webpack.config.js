@@ -1,4 +1,5 @@
 const { resolve } = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
 
@@ -19,7 +20,12 @@ module.exports = {
     ],
   },
 
-  plugins: [],
+  plugins: [
+
+    // Clean assets directory
+    new CleanWebpackPlugin()
+
+  ],
 
   // Resolve loaders relative to webpack4-defaults
   resolveLoader: {
