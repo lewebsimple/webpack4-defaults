@@ -103,7 +103,7 @@ module.exports = {
     })] : []),
 
     // Clean assets directory
-    new CleanWebpackPlugin(),
+    ...(mode === 'production' ? [new CleanWebpackPlugin()] : []),
 
     // Extract styles to a single CSS file
     new MiniCssExtractPlugin({ filename: 'css/[name].css', }),
