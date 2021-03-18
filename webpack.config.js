@@ -39,7 +39,7 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-            options: { sourceMap: true, importLoaders: 1 },
+            options: { sourceMap: true, importLoaders: 1, url: false },
           },
           {
             loader: 'postcss-loader',
