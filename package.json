@@ -1,6 +1,7 @@
 {
-  "name": "webpack4-defaults",
+  "name": "@lewebsimple/webpack4-defaults",
   "version": "0.1.4",
+  "description": "Default Webpack 4 configuration by Le Web simple",
   "main": "webpack.config.js",
   "license": "MIT",
   "bin": {
@@ -30,5 +31,8 @@
     "vue-template-compiler": "^2.6.12",
     "webpack": "4",
     "webpack-cli": "^4.5.0"
+  },
+  "peerDependencies": {
+    "postcss": "8"
   }
 }
