@@ -1,6 +1,6 @@
 {
   "name": "@lewebsimple/webpack4-defaults",
-  "version": "0.2.8",
+  "version": "0.2.7",
   "description": "Default Webpack 4 configuration by Le Web simple",
   "main": "webpack.config.js",
   "license": "MIT",
