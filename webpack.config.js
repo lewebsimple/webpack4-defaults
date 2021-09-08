@@ -26,6 +26,13 @@ module.exports = {
         },
       },
 
+      // ES6 modules
+      {
+        test: /\.mjs$/,
+        include: /node_modules/,
+        type: "javascript/auto"
+      },
+
       // Vue.js
       {
         test: /\.vue$/,
