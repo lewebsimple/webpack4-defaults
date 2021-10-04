@@ -26,6 +26,13 @@ module.exports = {
         },
       },
 
+      // TypeScript
+      {
+        test: /\.ts$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+
       // ES6 modules
       {
         test: /\.mjs$/,
