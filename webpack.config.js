@@ -28,8 +28,20 @@ module.exports = {
 
       // TypeScript
       {
-        test: /\.ts$/,
-        use: 'ts-loader',
+        test: /\.tsx?$/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env'],
+              plugins: ['@babel/plugin-transform-runtime'],
+            },
+          },
+          {            
+            loader: 'ts-loader',
+            options: { appendTsxSuffixTo: [/\.vue$/] },
+          }
+        ],
         exclude: /node_modules/,
       },
 
