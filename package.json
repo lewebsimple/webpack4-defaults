@@ -35,7 +35,14 @@
     "webpack": "4",
     "webpack-cli": "^4.8.0"
   },
+  "devDependencies": {
+    "@lewebsimple/eslint-config": "^0.2.4",
+    "eslint": "^7.32.0"
+  },
   "peerDependencies": {
     "postcss": "8"
+  },
+  "eslintConfig": {
+    "extends": "@lewebsimple/eslint-config"
   }
 }
