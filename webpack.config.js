@@ -27,7 +27,7 @@ module.exports = {
 
       // TypeScript
       {
-        test: /\.tsx?$/,
+        test: /\.ts$/,
         use: [
           {
             loader: "babel-loader",
@@ -38,7 +38,7 @@ module.exports = {
           },
           {
             loader: "ts-loader",
-            options: { appendTsxSuffixTo: [/\.vue$/] },
+            options: { appendTsSuffixTo: [/\.vue$/] },
           },
         ],
         exclude: /node_modules/,
