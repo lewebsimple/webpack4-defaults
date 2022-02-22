@@ -43,5 +43,8 @@
   },
   "eslintConfig": {
     "extends": "@lewebsimple/eslint-config"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   }
 }
